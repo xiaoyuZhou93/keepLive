@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/click1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="一像素保活" />
+
+    <Button
+        android:id="@+id/click2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="前台服务保活" />
+
+    <Button
+        android:id="@+id/click3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="账户同步拉活" />
+
+    <Button
+        android:id="@+id/click4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="JobScheduler拉活" />
+</LinearLayout>

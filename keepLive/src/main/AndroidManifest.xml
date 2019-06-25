@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.admin.keeplive">
+
+    <!--账户拉活所需要的权限-->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" />
+    <!--账户拉活权限-->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS" />
+    <!--JobScheduler权限  开机自启动-->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".BaseAcitivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <!-- 一像素 -->
+        <activity android:name=".onepx.MainActivity" />
+        <activity
+            android:name="com.example.admin.keeplive.onepx.OnePxActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize|navigation|keyboard"
+            android:excludeFromRecents="true"
+            android:finishOnTaskLaunch="false"
+            android:launchMode="singleInstance"
+            android:theme="@style/OnePxActStyle" />
+
+        <receiver android:name="com.example.admin.keeplive.onepx.OnePixelReceiver" />
+
+        <!-- 前台sercice -->
+        <activity android:name=".topservice.TopserviceActivity" />
+
+        <service
+            android:name="com.example.admin.keeplive.topservice.KeepService"
+            android:enabled="true"
+            android:exported="true"></service>
+        <service android:name="com.example.admin.keeplive.topservice.MoveNoticeService" />
+
+
+        <!--账户同步拉活-->
+        <activity android:name=".AccountSynchronization.AccountActivity" />
+
+        <service android:name=".AccountSynchronization.AuthenticationService">
+            <intent-filter>
+                <action android:name="android.accounts.AccountAuthenticator" />
+            </intent-filter>
+            <meta-data
+                android:name="android.accounts.AccountAuthenticator"
+                android:resource="@xml/accountauthenticator" />
+        </service>
+
+        <service android:name=".AccountSynchronization.SyncService">
+            <intent-filter>
+                <action android:name="android.content.SyncAdapter" />
+            </intent-filter>
+            <meta-data
+                android:name="android.content.SyncAdapter"
+                android:resource="@xml/sync_adapter" />
+        </service>
+
+        <provider
+            android:name=".AccountSynchronization.SyncProvider"
+            android:authorities="com.dongnao.daemon.provider" />
+        <!--JobScheduler进程拉活-->
+        <service
+            android:name=".jobscheduler.JobProtectService"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+        <activity android:name=".jobscheduler.JobSActivity" />
+
+
+    </application>
+</manifest>
