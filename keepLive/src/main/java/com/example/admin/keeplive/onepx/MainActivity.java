@@ -10,7 +10,7 @@ import android.widget.Button;
 import com.example.admin.keeplive.R;
 
 /**
- * 一像素保活(暂未测试 感觉有缺陷)
+ * 一像素保活
  *
  * @Author: zhouXiaoyu
  * @Date
