@@ -35,7 +35,9 @@
             android:launchMode="singleInstance"
             android:theme="@style/OnePxActStyle" />
 
-        <receiver android:name="com.example.admin.keeplive.onepx.OnePixelReceiver" />
+        <receiver android:name="com.example.admin.keeplive.onepx.OnePixelReceiver"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            />
 
         <!-- 前台sercice -->
         <activity android:name=".topservice.TopserviceActivity" />

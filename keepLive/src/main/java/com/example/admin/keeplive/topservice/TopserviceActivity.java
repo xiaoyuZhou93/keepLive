@@ -9,6 +9,7 @@ import com.example.admin.keeplive.R;
 
 /**
  * 前台service 保活
+ * Android 7.1.2 版本以上失效
  * @Author: zhouXiaoyu
  * @Date
  * @Param

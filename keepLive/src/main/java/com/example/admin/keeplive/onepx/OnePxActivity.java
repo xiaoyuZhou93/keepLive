@@ -1,5 +1,6 @@
 package com.example.admin.keeplive.onepx;
 
+import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -21,7 +22,7 @@ import android.view.WindowManager;
  */
 
 
-public class OnePxActivity extends AppCompatActivity {
+public class OnePxActivity extends Activity {
 
     private static final String TAG = "OnePx";
     private BroadcastReceiver endReceiver;

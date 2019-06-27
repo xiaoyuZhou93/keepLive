@@ -39,8 +39,10 @@ public class JobSActivity extends AppCompatActivity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             //android N之后时间必须在15分钟以上
             builder.setPeriodic(15 * 60 * 1000);
+            Log.e(TAG, "initview: "+"等待15分钟" );
         } else {
             builder.setPeriodic(60 * 1000);
+            Log.e(TAG, "initview: "+"等待1分钟" );
         }
         builder.setPersisted(true);
 
@@ -52,8 +54,6 @@ public class JobSActivity extends AppCompatActivity {
          * //它表示设备在WIFI连接时任务才会被执行
          * JobInfo.NETWORK_TYPE_UNMETERED
          */
-
-
         builder.setRequiredNetworkType(JobInfo.NETWORK_TYPE_NONE);
         int schedule = jobScheduler.schedule(builder.build());
         if (schedule <= 0) {

@@ -39,11 +39,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.open:
-                intentFilter.addAction(Intent.ACTION_SCREEN_ON);
+                intentFilter.addAction(Intent.ACTION_SCREEN_ON);//不填加这个action模拟器亮屏时候无法检测到
+                intentFilter.addAction(Intent.ACTION_SCREEN_OFF);
                 registerReceiver(new OnePixelReceiver(), intentFilter);
                 break;
             case R.id.close:
-                intentFilter.addAction(Intent.ACTION_SCREEN_OFF);
+                intentFilter.addAction(Intent.ACTION_SCREEN_ON);
                 registerReceiver(new OnePixelReceiver(), intentFilter);
                 break;
 
