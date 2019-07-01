@@ -29,7 +29,7 @@ public class AccountHelper {
             return;
         }
         //给这个账户类型添加一个账户
-        Account testaccount = new Account("test账户", ACCOUNT_TYPE);
+        Account testaccount = new Account("测试账号同步拉活标题", ACCOUNT_TYPE);
         am.addAccountExplicitly(testaccount, "mytest", new Bundle());
     }
 
